@@ -1,0 +1,41 @@
+commit 7a63bcaba2ca0db0523ca5498a0661715b3823c7
+Merge: 3399020 bd97beb
+Author: AndriiMaryniak <andrewmarynyak@gmail.com>
+Date:   Sat Apr 18 01:19:25 2026 +0300
+
+    Merge pull request #2 from AndriiMaryniak/dev
+    
+    Dev
+
+commit 3399020d9f4ba775f98bd6aeddd013696c25b06a
+Merge: 9eddef4 2ff7d6c
+Author: AndriiMaryniak <andrewmarynyak@gmail.com>
+Date:   Sat Apr 18 01:17:33 2026 +0300
+
+    Merge pull request #1 from AndriiMaryniak/AndriiMaryniak-new_feature
+    
+    Add feature README
+
+commit 2ff7d6c7902f6fec2ecbee8c706e85a6a4f71c9b
+Author: Андрій bc2024-3 <andrewmarynyak@gmail.com>
+Date:   Sat Apr 18 00:52:03 2026 +0300
+
+    Add feature README
+
+commit bd97beb93afad4ee2d160c851765b145ff78da90
+Author: Андрій bc2024-3 <andrewmarynyak@gmail.com>
+Date:   Sat Apr 18 00:51:29 2026 +0300
+
+    Remove accidentally added README.md
+
+commit ed2c4b4aa339122ff0ae19bbd70bc70005f6d158
+Author: Андрій bc2024-3 <andrewmarynyak@gmail.com>
+Date:   Sat Apr 18 00:42:23 2026 +0300
+
+    add test file for dev branch
+
+commit 9eddef4938d64dbf618427f3c66b9dc0f9791283
+Author: Андрій bc2024-3 <andrewmarynyak@gmail.com>
+Date:   Sat Apr 18 00:20:48 2026 +0300
+
+    Add task1 folder and README
