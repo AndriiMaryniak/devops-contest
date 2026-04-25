@@ -1,0 +1,8 @@
+Task 2
+1.Link to my working web server (Ubuntu):
+http://98.82.153.39
+2.Verification from another instance (Amazon Linux)
+curl http://172.31.36.159
+the script commands should be pasted into the User data field when creating the server
+in AWS Console 
+Server will run them automatically on the first boot
