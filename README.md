@@ -17,10 +17,17 @@ docker-compose.yml та .env — запуск інфраструктури. Пі
 2) Основні команди
 
 docker run hello-world — перевірка коректності встановлення Docker
+
 docker run -d -p 80:80 --name test-nginx nginx — запуск стандартного образу Nginx
+
 docker exec test-nginx sh -c 'echo "Andrii Maryniak Sandbox 2021" > /usr/share/nginx/html/index.html' — зміна тексту всередині працюючого контейнера (EXTRA 2.1)
+
 docker build -t takizavvaa/andrii-webapp:latest . — збірка образу з Dockerfile
+
 docker push takizavvaa/andrii-webapp:latest — відправка образу в публічний реєстр
+
 docker compose up -d — фоновий запуск бази даних та додатків
+
 docker ps — перевірка статусу контейнерів
+
 docker compose down — зупинка інфраструктури
