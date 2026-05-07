@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15-alpine
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U andrii_admin -d devops_lab"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  java_app:
+    image: tomcat:10-jre17
+    ports:
+      - "8080:8080"
+    depends_on:
+      database:
+        condition: service_healthy
+
+  my_webapp:
+    image: takizavvaa/andrii-webapp:latest
+    env_file:
+      - .env
+    ports:
+      - "8081-8085:80"
+    deploy:
+      replicas: 2
