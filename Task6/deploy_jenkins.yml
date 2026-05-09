@@ -1,0 +1,52 @@
+---
+- name: Deploy Jenkins Master with Docker support
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: Create Jenkins directory
+      file:
+        path: /opt/jenkins
+        state: directory
+        mode: '0755'
+
+    - name: Create docker-compose.yml
+      copy:
+        dest: /opt/jenkins/docker-compose.yml
+        content: |
+          version: '3.8'
+          services:
+            jenkins:
+              image: jenkins/jenkins:lts
+              container_name: jenkins_master
+              privileged: true
+              user: root
+              ports:
+
+                - "8080:8080"
+                - "50000:50000"
+
+              volumes:
+                - jenkins_data:/var/jenkins_home
+                - /var/run/docker.sock:/var/run/docker.sock
+                - /usr/bin/docker:/usr/bin/docker
+              restart: unless-stopped
+          volumes:
+            jenkins_data:
+
+    - name: Start Jenkins via Docker Compose
+      command: docker compose up -d
+      args:
+        chdir: /opt/jenkins
+
+    - name: Wait for initialization
+      pause:
+        seconds: 30
+
+    - name: Get initial admin password
+      command: docker exec jenkins_master cat /var/jenkins_home/secrets/initialAdminPassword
+      register: jenkins_pass
+
+    - name: Show admin password
+      debug:
+        msg: "JENKINS ADMIN PASSWORD: {{ jenkins_pass.stdout }}"
