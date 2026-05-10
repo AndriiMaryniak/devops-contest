@@ -1,0 +1,25 @@
+
+---
+- name: Deployment of Monitoring Agents
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure Zabbix Agent is installed
+      dnf:
+        name: zabbix-agent
+        state: present
+
+
+- name: Copy Zabbix Agent configuration
+      lineinfile:
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: '^Server='
+        line: 'Server=127.0.0.1'
+
+
+
+- name: Start and enable Zabbix Agent
+      systemd:
+        name: zabbix-agent
+        state: started
+        enabled: yes
