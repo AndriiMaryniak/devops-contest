@@ -1,0 +1,15 @@
+zabbix_export:
+  version: '7.4'
+  host_groups:
+    - uuid: dc579cd7a1a34222933f24f52a68bcd8
+      name: 'Linux servers'
+  hosts:
+    - host: 'Google DNS Ping'
+      name: 'Google DNS Ping'
+      templates:
+        - name: 'ICMP Ping'
+      groups:
+        - name: 'Linux servers'
+      interfaces:
+        - ip: 8.8.8.8
+          interface_ref: if1
